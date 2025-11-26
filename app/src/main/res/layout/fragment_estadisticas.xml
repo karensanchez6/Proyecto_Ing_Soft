@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F9FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Título -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estadísticas Generales"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#0A2647"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Total de votos -->
+        <TextView
+            android:id="@+id/tvTotalVotos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total de votos: 0"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#212529"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Distribución por candidato -->
+        <TextView
+            android:id="@+id/tvVotosPorCandidato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Distribución por candidato:"
+            android:textSize="16sp"
+            android:textColor="#212529"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Bar Chart -->
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChart"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp" />
+
+    </LinearLayout>
+</ScrollView>

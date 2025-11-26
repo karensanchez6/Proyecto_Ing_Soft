@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/estadisticasFragment">
+
+    <fragment
+        android:id="@+id/estadisticasFragment"
+        android:name="com.example.pfinal.EstadisticasFragment"
+        android:label="EstadisticasFragment" >
+        <action
+            android:id="@+id/action_estadisticasFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.pfinal.MainActivity"
+        android:label="MainActivity" />
+    <fragment
+        android:id="@+id/verificacionFragment"
+        android:name="com.example.pfinal.VerificacionFragment"
+        android:label="VerificacionFragment" >
+        <action
+            android:id="@+id/action_verificacionFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/sobreNosotrosFragment"
+        android:name="com.example.pfinal.SobreNosotrosFragment"
+        android:label="SobreNosotrosFragment" >
+        <action
+            android:id="@+id/action_sobreNosotrosFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/papeletaFragment"
+        android:name="com.example.pfinal.PapeletaFragment"
+        android:label="PapeletaFragment" >
+        <action
+            android:id="@+id/action_papeletaFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+</navigation>

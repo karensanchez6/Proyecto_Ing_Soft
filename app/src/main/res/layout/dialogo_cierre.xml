@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/tvDialogTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¡Voto registrado con éxito!"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/nav_item_color"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvContador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="La papeleta se cerrará en 20 segundos..."
+        android:textSize="16sp"
+        android:textColor="@color/nav_item_color"
+        android:layout_marginBottom="16dp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="359dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="16dp"
+        android:max="20"
+        android:progress="0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCerrarPapeleta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cerrar ahora"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/nav_item_color"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"
+        android:elevation="4dp"
+        app:cornerRadius="16dp" />
+
+</LinearLayout>

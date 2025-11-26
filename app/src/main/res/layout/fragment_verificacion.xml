@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:background="#F8F9FA"
+    android:fitsSystemWindows="true">
+
+    <!-- Encabezado decorativo -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0A2647"
+        android:text="Vota+"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:padding="24dp"
+        android:gravity="center"
+        android:elevation="8dp" />
+
+    <!-- Contenido -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ingrese su Cédula"
+                android:textColor="#212529"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/etCedula"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Ej: 8-123-456"
+                android:inputType="text"
+                android:background="@drawable/bg_edittext_rounded"
+                android:paddingHorizontal="16dp"
+                android:textColor="#212529"
+                android:textColorHint="#8A9BA8"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ingrese su PIN"
+                android:textColor="#212529"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/etPin"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="PIN de la cédula"
+                android:inputType="numberPassword"
+                android:background="@drawable/bg_edittext_rounded"
+                android:paddingHorizontal="16dp"
+                android:textColor="#212529"
+                android:textColorHint="#8A9BA8"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif" />
+
+            <Button
+                android:id="@+id/btnVerificar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Verificar padrón"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/nav_item_color"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginTop="36dp"
+                android:elevation="4dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
