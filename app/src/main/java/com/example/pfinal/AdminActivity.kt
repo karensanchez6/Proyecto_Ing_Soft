@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.appbar.MaterialToolbar
 
+//TODO: Complete code
 class AdminActivity : AppCompatActivity() {
 
     private lateinit var toolbar: MaterialToolbar
