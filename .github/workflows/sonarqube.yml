@@ -80,13 +80,13 @@ jobs:
           exit 1
 
       - name: Generate SonarQube token (ephemeral)
-        id: token
         run: |
-          # default creds inside fresh container are admin/admin
+          # Cambiar contraseña default (admin/admin) a una >= 12 chars
           curl -s -u admin:admin -X POST "http://localhost:9000/api/users/change_password" \
-            -d "login=admin&previousPassword=admin&password=admin123" || true
+            -d "login=admin&previousPassword=admin&password=admin123456789" || true
 
-          TOKEN=$(curl -s -u admin:admin123 -X POST "http://localhost:9000/api/user_tokens/generate" \
+          # Generar token
+          TOKEN=$(curl -s -u admin:admin123456789 -X POST "http://localhost:9000/api/user_tokens/generate" \
             -d "name=github-actions" | sed -n 's/.*"token":"\([^"]*\)".*/\1/p')
 
           if [ -z "$TOKEN" ]; then
