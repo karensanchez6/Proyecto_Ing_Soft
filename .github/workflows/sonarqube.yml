@@ -83,10 +83,10 @@ jobs:
         run: |
           # Cambiar contraseña default (admin/admin) a una >= 12 chars
           curl -s -u admin:admin -X POST "http://localhost:9000/api/users/change_password" \
-            -d "login=admin&previousPassword=admin&password=admin123456789" || true
+            -d "login=admin&previousPassword=admin&password=Admin123456789!" || true
 
           # Generar token
-          TOKEN=$(curl -s -u admin:admin123456789 -X POST "http://localhost:9000/api/user_tokens/generate" \
+          TOKEN=$(curl -s -u admin:Admin123456789! -X POST "http://localhost:9000/api/user_tokens/generate" \
             -d "name=github-actions" | sed -n 's/.*"token":"\([^"]*\)".*/\1/p')
 
           if [ -z "$TOKEN" ]; then
