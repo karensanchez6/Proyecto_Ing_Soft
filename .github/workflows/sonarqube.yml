@@ -40,6 +40,17 @@ jobs:
   Analysis:
     runs-on: ubuntu-latest
 
+    services:
+      sonarqube:
+        image: sonarqube:community
+        ports:
+          - 9000:9000
+        options: >-
+          --health-cmd="curl -fsS http://localhost:9000/api/system/status | grep -qE 'UP|STARTING|DB_MIGRATION_NEEDED|DB_MIGRATION_RUNNING'"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=60
+
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -54,6 +65,36 @@ jobs:
         with:
           java-version: 17
           distribution: 'zulu' # Alternative distribution options are available.
+      
+      - name: Wait for SonarQube to be UP
+        run: |
+          for i in {1..120}; do
+            STATUS=$(curl -s http://localhost:9000/api/system/status | sed -n 's/.*"status":"\([^"]*\)".*/\1/p')
+            echo "SonarQube status: $STATUS"
+            if [ "$STATUS" = "UP" ]; then
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "SonarQube did not become UP in time"
+          exit 1
+
+      - name: Generate SonarQube token (ephemeral)
+        id: token
+        run: |
+          # default creds inside fresh container are admin/admin
+          curl -s -u admin:admin -X POST "http://localhost:9000/api/users/change_password" \
+            -d "login=admin&previousPassword=admin&password=admin123" || true
+
+          TOKEN=$(curl -s -u admin:admin123 -X POST "http://localhost:9000/api/user_tokens/generate" \
+            -d "name=github-actions" | sed -n 's/.*"token":"\([^"]*\)".*/\1/p')
+
+          if [ -z "$TOKEN" ]; then
+            echo "Failed to generate token"
+            exit 1
+          fi
+
+          echo "SONAR_TOKEN=$TOKEN" >> $GITHUB_ENV
 
       - name: Cache SonarQube packages
         uses: actions/cache@v4
